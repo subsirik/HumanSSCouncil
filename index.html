@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลำดับการดำเนินโครงการ - สภานักศึกษาคณะมนุษยศาสตร์</title>
+    <!-- นำเข้าฟอนต์จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #652483; /* สีม่วง มช. */
+            --primary-light: #8c3ab3;
+            --secondary-color: #f28b00;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+        }
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .font-kanit { font-family: 'Kanit', sans-serif; }
+        
+        .header-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 12px rgba(101, 36, 131, 0.2);
+        }
+        .header-banner h1 { margin: 0; font-size: 1.8rem; font-weight: 500; }
+        .header-banner p { margin: 10px 0 0 0; font-size: 1.1rem; opacity: 0.9; }
+
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+        }
+        .card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px dashed #e2e8f0;
+            padding-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .process-list { list-style: none; padding: 0; margin: 0; }
+        .process-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .process-content h3 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 1.2rem; }
+        .process-content p { margin: 0; color: var(--text-light); }
+        .process-content .sub-step { 
+            background-color: #fff3e0; 
+            padding: 10px 15px; 
+            border-radius: 6px; 
+            margin-top: 8px; 
+            border-left: 3px solid #e65100;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: var(--primary-light); }
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        .btn-outline:hover { background-color: var(--primary-color); color: white; }
+
+        .status-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ffe0b2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .status-box h4 { margin: 0 0 5px 0; color: #e65100; font-size: 1.1rem; }
+
+        .nav-button {
+            display: block;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 40px 0;
+            box-shadow: 0 4px 10px rgba(101, 36, 131, 0.3);
+        }
+        .nav-button:hover { background: var(--primary-light); }
+
+        footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="header-banner">
+        <h1 class="font-kanit">ยินดีต้อนรับเข้าสู่หน้าเว็บเพจของสมาชิกสภานักศึกษาคณะมนุษยศาสตร์ ปีการศึกษา 2569 <!--[cite: 1]--></h1>
+        <p>โดยหน้าเว็บเพจนี้จะแจ้งเป็นหลักเกณฑ์และวิธีการปิดโครงการเป็นหลัก เพราะต้องใช้งานตลอดทั้งปีการศึกษา <!--[cite: 1]--></p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <h2 class="font-kanit">📌 ลำดับการดำเนินงาน <!--[cite: 1]--></h2>
+            <ul class="process-list">
+                <li class="process-item">
+                    <div class="step-number font-kanit">1</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">ดำเนินการส่งกำหนดการ <!--[cite: 1]--></h3>
+                        <p>กรุณาส่งก่อนการจัดกิจกรรม 3-5 วัน (บังคับทุกโครงการ) <!--[cite: 1]--></p>
+                        <a href="https://cmu.to/KASACTSCHEDULE" class="btn" target="_blank">ส่งกำหนดการ (cmu.to/KASACTSCHEDULE) <!--[cite: 1]--></a>
+                    </div>
+                </li>
+                <li class="process-item">
+                    <div class="step-number font-kanit">2</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">แจ้งเปลี่ยนสถานะในระบบ CMU SD <!--[cite: 1]--></h3>
+                        <p>ดำเนินการแจ้งเจ้าหน้าที่เพื่อขอเปลี่ยนสถานะในระบบให้เป็น "รวบรวมหลักฐานการเบิกจ่าย" <!--[cite: 1]--></p>
+                    </div>
+                </li>
+                <li class="process-item">
+                    <div class="step-number font-kanit">3</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">กรอกเอกสาร บนศ.2 <!--[cite: 1]--></h3>
+                        <p>ดำเนินการกรอกเอกสาร บนศ.2 ให้สมบูรณ์และถูกต้อง <!--[cite: 1]--></p>
+                    </div>
+                </li>
+                <li class="process-item">
+                    <div class="step-number font-kanit">4</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">ส่ง บนศ.2 และแจ้งปิดโครงการ <!--[cite: 1]--></h3>
+                        <p>กดส่ง บนศ.2 ให้กับสภาฯ และแจ้งปิดโครงการกับสภาฯ เสมอ <!--[cite: 1]--></p>
+                        <a href="https://cmu.to/QACloseout" class="btn" target="_blank">แจ้งปิดโครงการ (cmu.to/QACloseout) <!--[cite: 1]--></a>
+                    </div>
+                </li>
+                <li class="process-item">
+                    <div class="step-number font-kanit">5</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">แจ้งในกลุ่มไลน์ประสานงาน</h3>
+                        <p>หลังจากส่งแล้วให้แจ้งลงในกลุ่มประสานงานสภานักศึกษาคณะ <strong>(ชื่อโครงการ + รหัสโครงการ)</strong> ให้ทราบทุกครั้งทั้งการส่งครั้งแรกหรือส่งซ้ำเพื่อแก้ไข</p>
+                    </div>
+                </li>
+                <li class="process-item">
+                    <div class="step-number font-kanit">6</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">สภานักศึกษาดำเนินการตรวจประเมิน</h3>
+                        <p>สภานักศึกษาดำเนินการตรวจประเมินผลเอกสาร บ.นศ.2</p>
+                    </div>
+                </li>
+                <li class="process-item">
+                    <div class="step-number font-kanit">7</div>
+                    <div class="process-content">
+                        <h3 class="font-kanit">เปลี่ยนสถานะโครงการตามผลประเมิน</h3>
+                        <p style="color: #27ae60; font-weight: 500;">✓ หากผ่าน: จะเปลี่ยนสถานะเป็น "สิ้นสุดโครงการ"</p>
+                        <div class="sub-step">
+                            <p style="color: #d35400;"><strong>7.1 หากไม่ผ่าน:</strong> จะเปลี่ยนสถานะกลับเป็น <em>"รวบรวมหลักฐานการเบิกจ่าย"</em> และให้ดำเนินการแก้ไขส่งกลับมาใหม่ <strong>โดยวนซ้ำในข้อ 5</strong></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2 class="font-kanit">🔎 การตรวจสอบสถานะและคู่มือ</h2>
+            <div class="status-box">
+                <div>
+                    <h4 class="font-kanit">เช็คสถานะการปิดโครงการ <!--[cite: 1]--></h4>
+                    <p style="margin: 0; color: #666;">สามารถตรวจสอบสถานะกรณีแจ้งปิดได้ที่ลิงก์นี้ <!--[cite: 1]--></p>
+                </div>
+                <a href="https://cmu.to/QACheck" class="btn btn-outline" target="_blank">เช็คสถานะ (cmu.to/QACheck) <!--[cite: 1]--></a>
+            </div>
+            <div class="status-box">
+                <div>
+                    <h4 class="font-kanit">สไลด์คู่มือการปิดโครงการ <!--[cite: 1]--></h4>
+                    <p style="margin: 0; color: #666;">สามารถศึกษาสไลด์เพื่อสร้างความเข้าใจในการปิดโครงการ <!--[cite: 1]--></p>
+                </div>
+                <a href="https://cmu.to/QACANVA69" class="btn btn-outline" target="_blank">ศึกษาสไลด์ (cmu.to/QACANVA69) <!--[cite: 1]--></a>
+            </div>
+        </div>
+
+        <!-- ลิงก์ไปหน้าที่ 2 -->
+        <a href="announcement.html" class="nav-button font-kanit">
+            📖 ไปยังหน้าประกาศฉบับเต็มและอำนาจหน้าที่ ➔
+        </a>
+
+    </div>
+
+    <footer class="font-kanit">
+        &copy; 2569 สภานักศึกษาคณะมนุษยศาสตร์ มหาวิทยาลัยเชียงใหม่
+    </footer>
+
+</body>
+</html>
