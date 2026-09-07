@@ -60,8 +60,13 @@
             color: var(--primary-color);
             margin-top: 0;
             border-bottom: 2px solid #f1f2f6;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* แยกหัวข้อกับป้ายสถานะให้อยู่คนละฝั่ง */
+        }
+        .topic-title {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -77,6 +82,41 @@
             justify-content: center;
             font-size: 1.2rem;
         }
+
+        /* --- ระบบป้ายสถานะด้วย CSS ล้วน --- */
+        .badge-pass {
+            display: none; /* ซ่อนไว้ก่อน */
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+        .badge-pending {
+            display: inline-block;
+            background-color: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #d6d8db;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+
+        /* กลไกตรวจสอบ: ถ้าใน .pass-section "ไม่มี" checkbox ไหนที่ "ไม่ได้ติ๊ก" ให้แสดงสถานะผ่าน */
+        .card:not(:has(.pass-section input[type="checkbox"]:not(:checked))) .badge-pending {
+            display: none;
+        }
+        .card:not(:has(.pass-section input[type="checkbox"]:not(:checked))) .badge-pass {
+            display: inline-block;
+            animation: popIn 0.3s ease-out forwards;
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* ---------------------------------- */
 
         /* Checklist Styles */
         .checklist {
@@ -132,6 +172,16 @@
             font-size: 0.95rem;
         }
 
+        .note-box {
+            background-color: #e8f4f8;
+            color: #0c5460;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #17a2b8;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
         .nav-button {
             display: block;
             text-align: center;
@@ -164,10 +214,16 @@
 
         <!-- หัวข้อที่ 1 -->
         <div class="card">
-            <h2 class="font-kanit"><span class="topic-number">1</span> วัตถุประสงค์การจัดโครงการ <!--[cite: 2]--></h2>
+            <h2 class="font-kanit">
+                <div class="topic-title"><span class="topic-number">1</span> วัตถุประสงค์การจัดโครงการ <!--[cite: 2]--></div>
+                <div class="status-indicator">
+                    <span class="badge-pending">รอดำเนินการ</span>
+                    <span class="badge-pass">✅ ผ่าน</span>
+                </div>
+            </h2>
             
             <div class="pass-section">
-                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" <!--[cite: 2]--></h3>
+                <h3 class="font-kanit">✓ เช็คลิสต์เกณฑ์การประเมินให้ "ผ่าน" (ติ๊กเมื่อตรวจสอบแล้ว) <!--[cite: 2]--></h3>
                 <ul class="checklist">
                     <li>
                         <input type="checkbox" id="obj-pass-1">
@@ -192,10 +248,16 @@
 
         <!-- หัวข้อที่ 2 -->
         <div class="card">
-            <h2 class="font-kanit"><span class="topic-number">2</span> ดัชนีชี้วัดความสำเร็จของโครงการ <!--[cite: 2]--></h2>
+            <h2 class="font-kanit">
+                <div class="topic-title"><span class="topic-number">2</span> ดัชนีชี้วัดความสำเร็จของโครงการ <!--[cite: 2]--></div>
+                <div class="status-indicator">
+                    <span class="badge-pending">รอดำเนินการ</span>
+                    <span class="badge-pass">✅ ผ่าน</span>
+                </div>
+            </h2>
             
             <div class="pass-section">
-                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" <!--[cite: 2]--></h3>
+                <h3 class="font-kanit">✓ เช็คลิสต์เกณฑ์การประเมินให้ "ผ่าน" (ติ๊กเมื่อตรวจสอบแล้ว) <!--[cite: 2]--></h3>
                 <ul class="checklist">
                     <li>
                         <input type="checkbox" id="ind-pass-1">
@@ -205,11 +267,10 @@
                         <input type="checkbox" id="ind-pass-2">
                         <label for="ind-pass-2"><strong>กรณีดัชนี "ไม่สำเร็จ":</strong> มีการระบุเหตุผลที่ทำให้ไม่สามารถสำเร็จได้ชัดเจน และแนบหลักฐานการใช้เครื่องมือชี้วัด (แม้ไม่สำเร็จก็ต้องแนบ) <!--[cite: 2]--></label>
                     </li>
-                    <li>
-                        <input type="checkbox" id="ind-pass-3">
-                        <label for="ind-pass-3"><strong>หมายเหตุ:</strong> หากไม่มีเครื่องมือตัวชี้วัด ได้มีการระบุเหตุผลที่ไม่มีตัวชี้วัดประกอบมาด้วย <!--[cite: 2]--></label>
-                    </li>
                 </ul>
+                <div class="note-box">
+                    <strong>📌 หมายเหตุ:</strong> หากไม่มีเครื่องมือตัวชี้วัด ให้ระบุเหตุผลที่ไม่มีตัวชี้วัดประกอบมาด้วย <!--[cite: 2]-->
+                </div>
             </div>
 
             <div class="fail-section">
@@ -225,10 +286,16 @@
 
         <!-- หัวข้อที่ 3 -->
         <div class="card">
-            <h2 class="font-kanit"><span class="topic-number">3</span> เอกสารเครื่องมือการวัดผลดัชนีชี้วัด <!--[cite: 2]--></h2>
+            <h2 class="font-kanit">
+                <div class="topic-title"><span class="topic-number">3</span> เอกสารเครื่องมือการวัดผลดัชนีชี้วัด <!--[cite: 2]--></div>
+                <div class="status-indicator">
+                    <span class="badge-pending">รอดำเนินการ</span>
+                    <span class="badge-pass">✅ ผ่าน</span>
+                </div>
+            </h2>
             
             <div class="pass-section">
-                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" (ต้องแนบเอกสารให้ครบถ้วนและถูกต้องดังนี้) <!--[cite: 2]--></h3>
+                <h3 class="font-kanit">✓ เช็คลิสต์เกณฑ์การประเมินให้ "ผ่าน" (แนบเอกสารครบถ้วนดังนี้) <!--[cite: 2]--></h3>
                 <ul class="checklist">
                     <li>
                         <input type="checkbox" id="doc-pass-1">
@@ -259,10 +326,16 @@
 
         <!-- หัวข้อที่ 4 -->
         <div class="card">
-            <h2 class="font-kanit"><span class="topic-number">4</span> หลักฐานการใช้จ่ายเงินตามงบประมาณ <!--[cite: 2]--></h2>
+            <h2 class="font-kanit">
+                <div class="topic-title"><span class="topic-number">4</span> หลักฐานการใช้จ่ายเงินตามงบประมาณ <!--[cite: 2]--></div>
+                <div class="status-indicator">
+                    <span class="badge-pending">รอดำเนินการ</span>
+                    <span class="badge-pass">✅ ผ่าน</span>
+                </div>
+            </h2>
             
             <div class="pass-section">
-                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" <!--[cite: 2]--></h3>
+                <h3 class="font-kanit">✓ เช็คลิสต์เกณฑ์การประเมินให้ "ผ่าน" (ติ๊กเมื่อตรวจสอบแล้ว) <!--[cite: 2]--></h3>
                 <ul class="checklist">
                     <li>
                         <input type="checkbox" id="bud-pass-1">
