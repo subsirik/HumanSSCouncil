@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบประเมินตนเองก่อนปิดโครงการ - สภานักศึกษาคณะมนุษยศาสตร์</title>
+    <!-- นำเข้าฟอนต์จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #652483; 
+            --primary-light: #8c3ab3;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+        }
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .font-kanit { font-family: 'Kanit', sans-serif; }
+        
+        .header-banner {
+            background: linear-gradient(135deg, #4b1b60 0%, var(--primary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 12px rgba(101, 36, 131, 0.2);
+        }
+        .header-banner h1 { margin: 0; font-size: 1.8rem; font-weight: 500; }
+        .header-banner p { margin: 10px 0 0 0; font-size: 1.1rem; opacity: 0.9; }
+
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+
+        .alert-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            color: #856404;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+        }
+        .card h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 10px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .topic-number {
+            background: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Checklist Styles */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        .checklist li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+        .checklist input[type="checkbox"] {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--success-color);
+        }
+        .pass-section {
+            background: #f8fff9;
+            border: 1px solid #c3e6cb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .pass-section h3 {
+            color: var(--success-color);
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Fail/Warning Styles */
+        .fail-section {
+            background: #fff8f8;
+            border: 1px dashed #f5c6cb;
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+        .fail-section h3 {
+            color: var(--danger-color);
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .fail-section ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #721c24;
+            font-size: 0.95rem;
+        }
+
+        .nav-button {
+            display: block;
+            text-align: center;
+            background: #636e72;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 40px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button:hover { background: #2d3436; }
+
+        footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="header-banner">
+        <h1 class="font-kanit">แบบประเมินตนเองก่อนปิดโครงการ (Rubric) <!--[cite: 2]--></h1>
+        <p>หลักเกณฑ์ว่าด้วยการประเมินผลการปิดโครงการกิจกรรมนักศึกษา ตามระบบ CMU SD ปีการศึกษา 2569 <!--[cite: 2]--></p>
+    </header>
+
+    <div class="container">
+        
+        <div class="alert-box">
+            <strong class="font-kanit">คำชี้แจงสำคัญ:</strong> โครงการกิจกรรมนักศึกษาทุกโครงการจะสามารถ "ปิดโครงการ" หรือ ได้รับสถานะ "สิ้นสุดการจัดกิจกรรม" ตาม CMU SD ได้ ก็ต่อเมื่อโครงการนั้น ๆ ได้รับการประเมิน <strong>"ผ่านในทุกหัวข้อ"</strong> ตามหลักเกณฑ์ที่ระบุไว้ด้านล่างนี้เท่านั้น <!--[cite: 2]-->
+        </div>
+
+        <!-- หัวข้อที่ 1 -->
+        <div class="card">
+            <h2 class="font-kanit"><span class="topic-number">1</span> วัตถุประสงค์การจัดโครงการ <!--[cite: 2]--></h2>
+            
+            <div class="pass-section">
+                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" <!--[cite: 2]--></h3>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="obj-pass-1">
+                        <label for="obj-pass-1"><strong>กรณีบรรลุวัตถุประสงค์:</strong> มีเครื่องมือชี้วัดความสำเร็จที่ชัดเจน และสอดคล้องกับวัตถุประสงค์ <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="obj-pass-2">
+                        <label for="obj-pass-2"><strong>กรณีไม่บรรลุวัตถุประสงค์:</strong> มีการระบุเหตุผลซึ่งทำให้ไม่สามารถบรรลุวัตถุประสงค์ได้อย่างชัดเจน <!--[cite: 2]--></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fail-section">
+                <h3 class="font-kanit">⚠️ สิ่งที่ทำให้ "ไม่ผ่าน" (ขาดความชัดเจน) <!--[cite: 2]--></h3>
+                <ul>
+                    <li>ไม่มีการระบุผลการบรรลุวัตถุประสงค์ <!--[cite: 2]--></li>
+                    <li>กรอกข้อมูลไม่ถูกต้อง หรือดัชนีไม่สอดคล้องกับวัตถุประสงค์ <!--[cite: 2]--></li>
+                    <li>ไม่มีการกรอกเหตุผลที่ชัดเจน กรณีไม่บรรลุวัตถุประสงค์ <!--[cite: 2]--></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- หัวข้อที่ 2 -->
+        <div class="card">
+            <h2 class="font-kanit"><span class="topic-number">2</span> ดัชนีชี้วัดความสำเร็จของโครงการ <!--[cite: 2]--></h2>
+            
+            <div class="pass-section">
+                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" <!--[cite: 2]--></h3>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="ind-pass-1">
+                        <label for="ind-pass-1"><strong>กรณีดัชนี "สำเร็จ":</strong> เครื่องมือชี้วัดบรรลุผลตามที่มีการระบุไว้ทุกเงื่อนไข แนบหลักฐานตามที่เกิดขึ้นจริง และมีการสรุปผล <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="ind-pass-2">
+                        <label for="ind-pass-2"><strong>กรณีดัชนี "ไม่สำเร็จ":</strong> มีการระบุเหตุผลที่ทำให้ไม่สามารถสำเร็จได้ชัดเจน และแนบหลักฐานการใช้เครื่องมือชี้วัด (แม้ไม่สำเร็จก็ต้องแนบ) <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="ind-pass-3">
+                        <label for="ind-pass-3"><strong>หมายเหตุ:</strong> หากไม่มีเครื่องมือตัวชี้วัด ได้มีการระบุเหตุผลที่ไม่มีตัวชี้วัดประกอบมาด้วย <!--[cite: 2]--></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fail-section">
+                <h3 class="font-kanit">⚠️ สิ่งที่ทำให้ "ไม่ผ่าน" <!--[cite: 2]--></h3>
+                <ul>
+                    <li>กรอกข้อมูลในระบบไม่ถูกต้อง <!--[cite: 2]--></li>
+                    <li>ไม่มีการแนบหลักฐานประกอบตัวชี้วัด หรือหลักฐานขาดความชัดเจน <!--[cite: 2]--></li>
+                    <li>ไม่มีการสรุปผลเครื่องมือตัวชี้วัดที่ชัดเจน <!--[cite: 2]--></li>
+                    <li>ไม่มีการระบุสาเหตุที่ชัดเจนของการ "ไม่บรรลุผลสำเร็จ" หรือการขาดไปของตัวชี้วัด <!--[cite: 2]--></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- หัวข้อที่ 3 -->
+        <div class="card">
+            <h2 class="font-kanit"><span class="topic-number">3</span> เอกสารเครื่องมือการวัดผลดัชนีชี้วัด <!--[cite: 2]--></h2>
+            
+            <div class="pass-section">
+                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" (ต้องแนบเอกสารให้ครบถ้วนและถูกต้องดังนี้) <!--[cite: 2]--></h3>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="doc-pass-1">
+                        <label for="doc-pass-1">แบบการจัดการขยะตามที่สภากำหนด <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc-pass-2">
+                        <label for="doc-pass-2">แบบประเมินความพึงพอใจที่สอดคล้องในระบบ CMU SD <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc-pass-3">
+                        <label for="doc-pass-3">รูปภาพการจัดกิจกรรม <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc-pass-4">
+                        <label for="doc-pass-4">รายชื่อผู้เข้าร่วมกิจกรรมไฟล์ Excel (.xlsx) <!--[cite: 2]--></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fail-section">
+                <h3 class="font-kanit">⚠️ สิ่งที่ทำให้ "ไม่ผ่าน" <!--[cite: 2]--></h3>
+                <ul>
+                    <li>แนบเอกสารไม่ครบตามรายการที่กำหนดไว้ด้านบน <!--[cite: 2]--></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- หัวข้อที่ 4 -->
+        <div class="card">
+            <h2 class="font-kanit"><span class="topic-number">4</span> หลักฐานการใช้จ่ายเงินตามงบประมาณ <!--[cite: 2]--></h2>
+            
+            <div class="pass-section">
+                <h3 class="font-kanit">✓ เกณฑ์การประเมินให้ "ผ่าน" <!--[cite: 2]--></h3>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="bud-pass-1">
+                        <label for="bud-pass-1"><strong>กรณีใช้ "งบประมาณตรงตามที่ระบุไว้":</strong> กรอกข้อมูลรายการค่าใช้จ่ายในระบบ CMU SD ตรงตามเอกสารหลักฐานที่แนบ <!--[cite: 2]--></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="bud-pass-2">
+                        <label for="bud-pass-2"><strong>กรณีใช้ "งบประมาณไม่ตรงตามที่ระบุไว้":</strong> ข้อมูลในระบบตรงตามเอกสารที่แนบ <strong>และ</strong> มีการระบุสาเหตุอย่างชัดเจน (ทั้งกรณีงบประมาณเกิน และงบประมาณเหลือ) <!--[cite: 2]--></label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="fail-section">
+                <h3 class="font-kanit">⚠️ สิ่งที่ทำให้ "ไม่ผ่าน" <!--[cite: 2]--></h3>
+                <ul>
+                    <li>กรอกข้อมูลในระบบไม่ถูกต้อง <!--[cite: 2]--></li>
+                    <li>กรอกข้อมูลไม่ระบบไม่ตรงกับหลักฐานค่าใช้จ่ายที่ทำการแนบมา <!--[cite: 2]--></li>
+                    <li>ไม่มีการระบุสาเหตุที่ชัดเจน เมื่อมีการใช้งบประมาณไม่ตรงตามที่ระบุไว้ (กรณีเงินเหลือหรือเงินเกิน) <!--[cite: 2]--></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ลิงก์กลับหน้าแรก -->
+        <a href="index.html" class="nav-button font-kanit">
+            🡄 กลับไปยังหน้าแรก (ลำดับการดำเนินงาน)
+        </a>
+
+    </div>
+
+    <footer class="font-kanit">
+        &copy; 2569 คณะกรรมาธิการฝ่ายประกันคุณภาพติดตาม และ ประเมินผล สภานักศึกษามหาวิทยาลัยเชียงใหม่ <!--[cite: 2]-->
+    </footer>
+
+</body>
+</html>
